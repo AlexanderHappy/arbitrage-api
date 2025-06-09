@@ -41,7 +41,7 @@ app/
 │   └── NotificationBuilder.php
 ├── Collections/        # Custom collections с Iterator
 │   └── ArbitrageOpportunityCollection.php
-├── Contracts/          # Интерфейсы
+├── Interfaces/          # Интерфейсы
 │   ├── ExchangeStrategyInterface.php
 │   ├── NotificationChannelInterface.php
 │   ├── ArbitrageRepositoryInterface.php
@@ -171,7 +171,7 @@ tests/
 2. **exchanges** - биржи и их конфигурация
    exchanges:
    - id
-     - name (Binance, Kraken, Coinbase)
+     - name (KuCoin, Gate)
      - api_url (https://api.binance.com/api/v3)
      - api_key (ваш ключ)
      - api_secret (секретный ключ)
@@ -208,7 +208,7 @@ tests/
      - volume_24h (объем торгов за 24ч)
      - timestamp (когда зафиксировали)
      - created_at    
-5. **user_notifications** - настройки уведомлений
+5. **user_notifications** - настройки уведомлений (!ПОЛИМОРФНАЯ СВЯЗЬ)
    user_notifications:
    - id
      - user_id (foreign key -> users.id)
