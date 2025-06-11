@@ -14,7 +14,9 @@ class ExchangeService
     private InterfaceExchangeStrategy $strategy;
     private Exchange                  $exchange;
 
-    public function __construct(Exchange $exchange)
+    public function __construct(
+        Exchange $exchange
+    )
     {
         $this->exchange = $exchange;
         $this->strategy = $this->createStrategy($exchange);
@@ -108,9 +110,9 @@ class ExchangeService
     {
         return match ($exchange->name) {
             'KuCoin' => new KucoinStrategy(
-                $exchange->api_key,
-                $exchange->api_secret,
-                $exchange->passphrase
+                null,
+                null,
+                null,
             ),
 //            'Binance' => new BinanceStrategy(
 //                $exchange->api_key,

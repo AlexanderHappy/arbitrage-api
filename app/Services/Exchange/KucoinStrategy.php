@@ -65,7 +65,7 @@ class KucoinStrategy implements InterfaceExchangeStrategy
                 last:      (float)$data['price'],
                 volume24h: (float)($stats['vol'] ?? 0),
                 exchange:  $this->getName(),
-                quotedAt:  new \DateTime()
+                quotedAt:  new \DateTime(),
             );
 
         } catch (\Exception $e) {

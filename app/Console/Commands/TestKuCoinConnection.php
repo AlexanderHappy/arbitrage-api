@@ -8,12 +8,16 @@ use Illuminate\Console\Command;
 
 class TestKuCoinConnection extends Command
 {
-    protected $signature = 'kucoin:test {pair=BTC/USDT}';
+    protected $signature = 'kucoin:test {pair=BTC-USDT}';
     protected $description = 'Test KuCoin API connection';
 
     public function handle(): int
     {
         $pair = $this->argument('pair');
+
+        dd(
+            $pair
+        );
 
         // Get or create KuCoin exchange
         $exchange = Exchange::firstOrCreate(
@@ -30,8 +34,6 @@ class TestKuCoinConnection extends Command
         );
 
 
-        // TODO начать отсюда.
-        // Протестировать первую интеграцию с биржой.
         $service = new ExchangeService($exchange);
 
         $this->info("Testing KuCoin API for {$pair}...\n");
